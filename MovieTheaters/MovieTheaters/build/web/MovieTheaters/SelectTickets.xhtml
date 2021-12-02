@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Select Number of Tickets</title>
+    </h:head>
+    <h:body style="background-color:black;">
+        <h:form>
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center"  class="outer_table">
+                <tr>
+                    <td>
+                        <table width="900" height="300" cellpadding="0" cellspacing="0" border="0" align="center">
+                            <tr>
+                                <td align="center">
+                                    <h:outputLabel value ="How many tickets would you like to buy for the #{showMoviesBean.oneMovieTime.showtimes} showing of '#{showMoviesBean.movies.name}' at #{showMoviesBean.theater.name}?" 
+                                                   style="font-weight: bold; color:gold; font-size: 30px; " />
+                                    <h:panelGrid columns ="1" style="align-contents">
+                                        <h:inputText value="#{showMoviesBean.noOfTickets}"/>
+
+                                    </h:panelGrid>
+                                    <h:commandButton value ="Proceed to Payment"
+                                                     action ="Payment.xhtml?faces-redirect=true"
+                                                     style="margin-top: 5px;">
+                                    </h:commandButton>      
+                                    <br></br>
+                                    <h:commandButton value ="Select a Different Showtime"
+                                                     action ="Showings.xhtml?faces-redirect=true"
+                                                     style="margin-right: 5px; margin-top: 5px;">
+                                    </h:commandButton>   
+                                    <h:commandButton value ="Select a Different Movie"
+                                                     action ="ShowMovies.xhtml?faces-redirect=true">
+                                    </h:commandButton> 
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+
+        </h:form> 
+    </h:body>
+</html>

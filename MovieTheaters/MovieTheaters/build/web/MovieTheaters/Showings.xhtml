@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <script type="text/css">
+        html, body
+        {
+            margin:0px;
+            padding:0px;
+            width:100%;
+            min-height:100%;
+            height:100%;
+        }
+        .outer_table
+        {
+            width:100%;
+            height:100%;
+        }
+    </script>
+    <h:head>
+        <title>Showtimes</title>
+    </h:head>
+    <h:body style="background-color:black;">
+        <h:form>
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center"  class="outer_table">
+                <tr>
+                    <td>
+                        <table width="900" height="300" cellpadding="0" cellspacing="0" border="0" align="center">
+                            <tr>
+                                <td align="center">
+                                    <h:outputText value ="Show Times for '#{showMoviesBean.movies.name}' at #{showMoviesBean.theater.name}"
+                                                  style="font-size: 30px; font-weight:bold; color:white; align-content: flex-end;"/>
+                                    <h:dataTable value ="#{showMoviesBean.movietimes}" var ="movietimes" style=" align-content: center">
+                                        <h:column>
+                                            <f:facet name="header">
+                                            </f:facet>
+                                            <h:commandLink value ="#{movietimes.showtimes}"
+                                                           action = "#{showMoviesBean.goToTicketSelection(movietimes)}"
+                                                           style="font-size: 30px; color:gold; text-decoration: underline; align-content: center;">
+                                                <f:param name ="selectedTime" value="#{showtimes}"/>
+                                            </h:commandLink>
+
+                                        </h:column>
+                                    </h:dataTable>
+                                    <h:form>
+                                        <h:commandButton value="Back to Main Page"
+                                                         action ="mainPage.xhtml?faces-redirect=true"
+                                                         style="margin-top: 5px; margin-right: 5px;"/>
+                                        <h:commandButton value="Back to Movie Description"
+                                                         action ="MovieInfo.xhtml?faces-redirect=true"
+                                                          style="margin-top: 5px; margin-right: 5px;"/>
+                                        <h:commandButton value ="Select a Different Movie"
+                                                         action ="ShowMovies.xhtml?faces-redirect=true"
+                                                          style="margin-top: 5px; margin-right: 5px;">
+                                        </h:commandButton>  
+                                    </h:form>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </h:form>   
+    </h:body>
+</html>
+
